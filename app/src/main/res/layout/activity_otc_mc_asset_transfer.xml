@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme01.appBackColor"
+    tools:context="com.btsplusplus.fowallet.ActivityOtcMcAssetTransfer">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
+
+        <!-- 导航栏 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/layout_back_from_otc_mc_asset_transfer"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_btn_back"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/kBtnBack"
+                    style="@style/kNavigationBarTextStyle"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="@string/kVcTitleOtcMcAssetTransfer"
+                style="@style/kNavigationBarTextStyle" />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:fillViewport="true"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_asset_transfer_from_otc_mc_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- 交换控件 -->
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- 左 -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        tools:ignore="Suspicious0dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textColor="@color/theme01.textColorMain"
+                                android:textSize="11dp"
+                                android:layout_marginRight="4dp"
+                                android:text="@string/kOtcMcAssetTransferFromTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/tv_from_title"
+                                android:textColor="@color/theme01.textColorGray"
+                                android:textSize="11dp"
+                                android:text="from value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_from_value"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:textSize="12dp"
+                            android:text=""
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!-- 中 -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        tools:ignore="Suspicious0dp">
+
+                        <ImageView
+                            android:id="@+id/img_icon_otc_switch"
+                            android:src="@drawable/icon_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <!-- 右 -->
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        tools:ignore="Suspicious0dp">
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textColor="@color/theme01.textColorMain"
+                                android:textSize="11dp"
+                                android:layout_marginRight="4dp"
+                                android:text="@string/kOtcMcAssetTransferToTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/tv_to_title"
+                                android:textColor="@color/theme01.textColorGray"
+                                android:textSize="11dp"
+                                android:text="to value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_to_value"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:textSize="12dp"
+                            android:text=""
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 资产选择 - 标题 -->
+                <TextView
+                    android:textSize="11dp"
+                    android:textColor="@color/theme01.textColorMain"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/kOtcMcAssetTransferCellLabelAsset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <!-- 资产选择 - 值 -->
+                <LinearLayout
+                    android:id="@+id/layout_curr_asset_symbol"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_curr_asset_symbol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textSize="14dp"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:text="USD"/>
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 数量和余额 -->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textSize="11dp"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:text="@string/kOtcMcAssetTransferCellLabelAmount"/>
+
+                    <TextView
+                        android:id="@+id/tv_curr_balance"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical|right"
+                        android:textSize="11dp"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:text="可用0USD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <!-- <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View> -->
+
+                <!-- 输入框 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="40dp">
+
+                    <EditText
+                        android:id="@+id/tf_amount"
+                        android:maxLength="24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        style="@style/kTextFieldDecimalPad"
+                        android:hint="@string/kOtcMcAssetTransferTfAmountPlaeholder"/>
+
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical|right"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_tailer_asset_symbol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textSize="11dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="USD"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textSize="11dp"
+                            android:textColor="@color/theme01.textColorNormal"
+                            android:text="|"/>
+                        <TextView
+                            android:id="@+id/btn_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical|right"
+                            android:textSize="11dp"
+                            android:textColor="@color/theme01.textColorHighlight"
+                            android:text="@string/kLabelSendAll"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 提交 -->
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    style="@style/kMainButtonStyle"
+                    android:gravity="center|center_vertical"
+                    android:textAllCaps="false"
+                    android:text="@string/kOtcMcAssetSubmitBtnName" />
+
+                <!-- 提示信息 -->
+                <TextView
+                    android:id="@+id/tv_tips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:singleLine="false"
+                    android:textSize="12dp"
+                    android:textColor="@color/theme01.textColorMain"
+                    android:padding="5dp"
+                    android:background="@color/theme01.textColorGray"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

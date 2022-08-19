@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.btsplusplus.fowallet.ActivityAssetOpGlobalSettle"
+    android:background="@color/theme01.appBackColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
+
+        <!-- 导航栏 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/layout_back_from_global_settle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_btn_back"/>
+                <TextView
+                    style="@style/kNavigationBarTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/kBtnBack"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="@string/kVcTitleAssetGlobalSettle"
+                style="@style/kNavigationBarTextStyle" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 资产 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/kOtcMcAssetTransferCellLabelAsset"
+                android:textSize="13dp"
+                android:textColor="@color/theme01.textColorMain"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/tv_curr_select_asset_symbol"
+                android:text="--"
+                android:textSize="18dp"
+                android:textColor="@color/theme01.textColorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View android:layout_marginTop="10dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+            <!-- 价格 -->
+            <TextView
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/kVcAssetOpGsCellTitlePrice"
+                android:textSize="13dp"
+                android:textColor="@color/theme01.textColorMain"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/tf_price"
+                    android:maxLength="24"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    style="@style/kTextFieldDecimalPad"
+                    android:hint="@string/kVcAssetOpGsCellPlaceholderPrice"/>
+
+                <LinearLayout
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <!-- 价格符号 -->
+                    <TextView
+                        android:id="@+id/tv_tailer_asset_symbol"
+                        android:layout_marginLeft="5dp"
+                        android:textStyle="bold"
+                        android:text="--"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:textSize="11dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <!-- 预测市场的快捷按钮 真 假 -->
+                    <TextView
+                        android:id="@+id/tv_tailer_separator"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="|"
+                        android:textColor="@color/theme01.textColorGray"
+                        android:textSize="11dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/btn_pmas_true"
+                        android:text="@string/kVcAssetOpGsCellTailerBtnPmAsTrue"
+                        android:textColor="@color/theme01.textColorHighlight"
+                        android:textSize="11dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/btn_pmas_false"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/kVcAssetOpGsCellTailerBtnPmAsFalse"
+                        android:textColor="@color/theme01.textColorHighlight"
+                        android:textSize="11dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View android:layout_marginTop="10dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+            <!-- 按钮：全局清算 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_submit_from_global_settle"
+                    android:layout_width="wrap_content"
+                    style="@style/kMainButtonStyle"
+                    android:gravity="center|center_vertical"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:textAllCaps="false"
+                    android:text="@string/kVcAssetOpGsSubmitBtnName" />
+            </LinearLayout>
+
+            <!-- UI提示信息 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:singleLine="false"
+                android:textSize="12dp"
+                android:textColor="@color/theme01.textColorMain"
+                android:padding="5dp"
+                android:background="@color/theme01.textColorGray"
+                android:text="@string/kVcAssetOpGsUiTips"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

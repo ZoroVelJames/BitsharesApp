@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentTradeMainPage">
+
+    <LinearLayout
+        android:id="@+id/layout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/frame_zf"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/label_txt_curr_price"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="bottom"
+                android:text="--"
+                android:textColor="@color/theme01.buyColor"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/label_txt_curr_price_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="bottom"
+                android:text="--%"
+                android:textColor="@color/theme01.buyColor"
+                android:textSize="12dp"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/table_wrap_of_buy"
+            android:layout_marginTop="-10dp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- 买卖价格 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimary">
+
+                    <EditText
+                        android:id="@+id/tf_price"
+                        android:maxLength="24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        style="@style/kTextFieldDecimalPad"
+                        android:hint="@string/kPlaceHolderBuyPrice"/>
+
+                    <TextView
+                        android:id="@+id/label_txt_tf_price_tailer"
+                        android:layout_width="50dp"
+                        android:textSize="13dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center"
+                        android:text="BTS"
+                        android:textColor="@color/theme01.textColorNormal" />
+
+                    <Button
+                        android:id="@+id/btn_tailer_bid1"
+                        android:layout_width="75dp"
+                        android:textSize="13dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:text="@string/kTailerBtnBid1"
+                        android:textAllCaps="false"
+                        android:textColor="@color/theme01.textColorHighlight" />
+
+                    <Button
+                        android:id="@+id/btn_tailer_ask1"
+                        android:textSize="13dp"
+                        android:layout_width="75dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:text="@string/kTailerBtnAsk1"
+                        android:textAllCaps="false"
+                        android:textColor="@color/theme01.textColorHighlight" />
+                </LinearLayout>
+
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 买卖数量 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/tf_amount"
+                        android:maxLength="24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        style="@style/kTextFieldDecimalPad"
+                        android:hint="@string/kPlaceHolderBuyAmount"/>
+
+                    <TextView
+                        android:id="@+id/label_txt_tf_amount_tailer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center_vertical|center"
+                        android:text="BTS"
+                        android:textSize="13dp"
+                        android:textColor="@color/theme01.textColorNormal" />
+
+                    <Button
+                        android:id="@+id/btn_tailer_percent25"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:text="25%"
+                        android:textSize="13dp"
+                        android:textColor="@color/theme01.textColorHighlight" />
+
+                    <Button
+                        android:id="@+id/btn_tailer_percent50"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:text="50%"
+                        android:textSize="13dp"
+                        android:textColor="@color/theme01.textColorHighlight" />
+                    <Button
+                        android:id="@+id/btn_tailer_percent100"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:text="100%"
+                        android:textSize="13dp"
+                        android:textColor="@color/theme01.textColorHighlight" />
+
+
+                </LinearLayout>
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 交易总额 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/tf_total"
+                        android:maxLength="24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        style="@style/kTextFieldDecimalPad"
+                        android:hint="@string/kLableTotalPrice"/>
+
+                    <TextView
+                        android:id="@+id/label_txt_tf_total_tailer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|center"
+                        android:text="BTS"
+                        android:textSize="13dp"
+                        android:textColor="@color/theme01.textColorNormal" />
+                </LinearLayout>
+
+                <View android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/label_txt_available_n"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="13dp"
+                        android:text="@string/kLableAvailable"
+                        android:textColor="@color/theme01.textColorNormal" />
+                    <TextView
+                        android:id="@+id/label_txt_market_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_gravity="center_vertical|right"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:textSize="13dp"
+                        android:text="0%"
+                        />
+                </LinearLayout>
+
+                <!-- 买卖or登录按钮 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/confirmation_btn_of_buy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center|center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/theme01.buyColor"
+                        android:padding="5dp"
+                        android:text="@string/kNormalCellBtnLogin"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:textAllCaps="false"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <!-- 以下委托是登录后可见 -->
+                <LinearLayout
+                    android:id="@+id/field_current_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:layout_weight="1"
+                        android:text="@string/kLabelOpenOrders"
+                        android:textColor="@color/theme01.textColorMain"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"/>
+
+
+                    <TextView
+                        android:id="@+id/btn_view_all_orders"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="13dp"
+                        android:layout_weight="1"
+                        android:text="@string/kLabelSendAll"
+                        android:textColor="@color/theme01.textColorHighlight"
+                        android:gravity="right|center_vertical"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+
+                <!-- 委托 -->
+                <LinearLayout
+                    android:id="@+id/layout_my_current_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

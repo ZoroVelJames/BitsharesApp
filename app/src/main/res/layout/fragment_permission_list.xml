@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.btsplusplus.fowallet.FragmentPermissionList">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- 各种权限列表 -->
+                <LinearLayout
+                    android:id="@+id/layout_of_fragment_permission_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- ... -->
+                </LinearLayout>
+
+                <!-- 修改密码 -->
+                <Button
+                    android:id="@+id/btn_edit_password"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    style="@style/kMainButtonStyle"
+                    android:gravity="center|center_vertical"
+                    android:textAllCaps="false"
+                    android:text="@string/kEditPasswordBtnEntry" />
+                    
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,99 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "org.bitshares.app"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 202009131
+        versionName "6.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+        vectorDrawables.useSupportLibrary = true
+
+        //  默认值
+        buildConfigField "boolean", "kAppModuleEnableTabMarket", "true"
+        buildConfigField "boolean", "kAppModuleEnableTabDebt", "true"
+        buildConfigField "boolean", "kAppModuleEnableOTC", "true"
+        buildConfigField "boolean", "kAppModuleEnableGateway", "true"
+        buildConfigField "boolean", "kAppCheckUpdate", "true"
+
+        buildConfigField "String", "kAppCommunityFaucetAddress", "\"\""
+        buildConfigField "String", "kAppConfigFile", "\"fowallet_config.json\""
+
+        //  不区分维度
+        flavorDimensions "default"
+    }
+    productFlavors {
+        btspp {
+            //  0:iOS企业版 1:AppStore版 10:btspp 20:community(bbf) 100:baichenglian
+            buildConfigField "int", "kAppChannelID", "10"
+            buildConfigField "boolean", "kUseCommunityFaucet", "false"
+            buildConfigField "String", "kAppConfigFile", "\"fowallet_config_btspp.json\""
+            //  TODO: test net
+//            buildConfigField "String", "kAppConfigFile", "\"fowallet_config_testnet.json\""
+            //  TODO:2.9 test otc
+//            buildConfigField "String", "kAppConfigFile", "\"fowallet_config_otctest.json\""
+//            buildConfigField "boolean", "kAppModuleEnableTabDebt", "false"
+        }
+        //  for community_bbf
+        bitshares {
+            buildConfigField "int", "kAppChannelID", "20"
+//            buildConfigField "boolean", "kAppModuleEnableOTC", "false"
+            buildConfigField "boolean", "kUseCommunityFaucet", "true"
+            buildConfigField "String", "kAppCommunityFaucetAddress", "\"https://faucet.bitshares.eu/onboarding/api/v1/accounts\""
+        }
+        baichenglian {
+            applicationId "cn.btser.shop"
+            versionCode 201910211
+            versionName "1.1"
+
+            buildConfigField "boolean", "kAppModuleEnableTabMarket", "false"
+            buildConfigField "boolean", "kAppModuleEnableTabDebt", "false"
+            buildConfigField "boolean", "kAppModuleEnableGateway", "false"
+            buildConfigField "boolean", "kAppCheckUpdate", "false"
+
+            buildConfigField "int", "kAppChannelID", "100"
+            buildConfigField "boolean", "kUseCommunityFaucet", "false"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-vector-drawable:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //   for web socket
+    implementation 'org.java-websocket:Java-WebSocket:1.3.9'
+    implementation 'com.orhanobut:logger:2.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    //  for webserver
+    implementation "com.yanzhenjie:andserver:1.1.4"
+    //  for wallet core
+    implementation files('libs/armeabi-v7a.jar')
+    implementation files('libs/x86.jar')
+    //  for flurry
+    implementation 'com.flurry.android:analytics:11.6.0@aar'
+}

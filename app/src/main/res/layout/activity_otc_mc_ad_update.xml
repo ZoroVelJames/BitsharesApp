@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme01.appBackColor"
+    tools:context="com.btsplusplus.fowallet.ActivityOtcMcAdUpdate">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical">
+
+        <!-- 导航栏 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/layout_back_from_otc_mc_ad_update"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_btn_back"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/kBtnBack"
+                    style="@style/kNavigationBarTextStyle"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text=""
+                style="@style/kNavigationBarTextStyle" />
+
+            <Button
+                android:id="@+id/btn_delete_ad"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                style="@style/kNavigationBarTextStyle"
+                android:background="#00000000"
+                android:text="@string/kOtcMcAdBtnNameDelete"
+                android:layout_marginRight="10dp"  />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:fillViewport="true"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout_asset_list_from_otc_ad_update"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- 广告类型 -->
+                <LinearLayout
+                    android:id="@+id/layout_ad_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellAdType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_ad_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellAdTypeValueSelectPlaceholder"/>
+
+                        <ImageView
+                            android:id="@+id/img_icon_arrow_ad_type"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 数字资产 -->
+                <LinearLayout
+                    android:id="@+id/layout_asset_symbol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellAsset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_asset_symbol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellAssetValueSelectPlaceholder"/>
+
+                        <ImageView
+                            android:id="@+id/img_icon_arrow_asset_symbol"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 法币 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellFiatAsset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_fiat_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellFiatAssetValueCN"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+                <!-- 定价方式 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellPriceType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_price_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellPriceTypeFixed"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 您的价格 -->
+                <LinearLayout
+                    android:id="@+id/layout_your_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellYourPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_your_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellYourPlacePlaceholder"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+
+                <!-- 交易数量 -->
+                <LinearLayout
+                    android:id="@+id/layout_trade_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_trade_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellAmountPlaceholder"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+                <!-- 可用余额 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellAvailable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorNormal"
+                            android:text=""/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+
+                <!-- 最小限额 -->
+                <LinearLayout
+                    android:id="@+id/layout_min_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellMinLimit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_min_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellMinLimitPlaceholder"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+
+                <!-- 最大限额 -->
+                <LinearLayout
+                    android:id="@+id/layout_max_limit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellMaxLimit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_max_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellMaxLimitPlaceholder"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <!-- 交易说明 -->
+                <LinearLayout
+                    android:id="@+id/layout_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="12dp"
+                        android:textColor="@color/theme01.textColorNormal"
+                        android:text="@string/kOtcMcAdEditCellRemark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:gravity="center_vertical|right"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/tv_remark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:textSize="12dp"
+                            android:textColor="@color/theme01.textColorMain"
+                            android:text="@string/kOtcMcAdEditCellRemarkPlaceholder"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/ic_btn_right_arrow" />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:layout_marginTop="5dp" android:layout_height="1dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_submit_01"
+                        android:layout_width="match_parent"
+                        style="@style/kMainButtonStyle"
+                        android:gravity="center|center_vertical"
+                        android:textAllCaps="false"
+                        android:text="--" />
+
+                    <Button
+                        android:id="@+id/btn_submit_02"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center|center_vertical"
+                        android:background="@color/theme01.textColorGray"
+                        android:text="--"
+                        android:textColor="@color/theme01.mainButtonTextColor"
+                        android:textAllCaps="false"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.btsplusplus.fowallet.ActivityPermissionAddOne"
+    android:background="@color/theme01.appBackColor">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+    
+        <!-- header & navi bar -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/layout_back_from_add_one_permission"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_btn_back" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/kBtnBack"
+                    style="@style/kNavigationBarTextStyle"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_from_create_htlc_contract"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:text="@string/kVcTitlePermissionAddAuthority"
+                style="@style/kNavigationBarTextStyle" />
+
+        </FrameLayout>
+
+        <!-- 管理者标题 -->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kVcPermissionAddOneTitleAuthority"
+            android:textSize="14dp"
+            android:textColor="@color/theme01.textColorMain"
+            />
+
+        <!-- 管理者输入框 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/tf_authority_name"
+                android:maxLength="64"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="center_vertical|left"
+                android:layout_weight="6"
+                android:paddingLeft="0dp"
+                style="@style/kTextFieldNormal"
+                android:hint="@string/kVcPermissionAddOnePlaceholderAuthority"/>
+
+            <TextView
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:textSize="14dp"
+                android:textColor="@color/theme01.textColorHighlight"
+                android:text="@string/kVcPermissionAddOneBtnSearchAccount"/>
+
+        </LinearLayout>
+
+        <View android:layout_height="1dp" android:layout_marginTop="0dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+        <!-- 权重标题 -->
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kVcPermissionAddOneTitleWeight"
+            android:textSize="14dp"
+            android:textColor="@color/theme01.textColorMain"
+            />
+
+        <!-- 权重输入框 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/tf_weight"
+                android:maxLength="5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|right"
+                android:gravity="center_vertical|left"
+                android:layout_weight="6"
+                android:paddingLeft="0dp"
+                style="@style/kTextFieldNumberPad"
+                android:hint="@string/kVcPermissionAddOnePlaceholderWeight"/>
+
+        </LinearLayout>
+
+        <View android:layout_height="1dp" android:layout_marginTop="0dp" android:background="@color/theme01.bottomLineColor" android:layout_width="fill_parent"></View>
+
+
+        <!-- 确定按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_submitt_from_add_one_permission"
+                android:layout_width="wrap_content"
+                style="@style/kMainButtonStyle"
+                android:gravity="center|center_vertical"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="@string/kVcPermissionAddOneBtnDone" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
