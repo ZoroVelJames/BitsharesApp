@@ -378,7 +378,7 @@
                             android:src="@drawable/ic_btn_right_arrow" />
 
                     </LinearLayout>
-                    
+
                     <!-- BTS区块浏览器 -->
                     <LinearLayout
                         android:id="@+id/layout_bts_explorer"
@@ -453,14 +453,16 @@
 
             </LinearLayout>
         </ScrollView>
-        
+
     </LinearLayout>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <include
             layout="@layout/bottom_nav"

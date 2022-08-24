@@ -77,7 +77,7 @@
     <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@mipmap/launch</item>
+        <item name="android:windowBackground">@mipmap/bitlaunch</item>
     </style>
 
     <style name="SlideFromBottom" parent="android:Animation">

@@ -36,10 +36,10 @@ class ActivityIndexServices : BtsppActivity() {
             layout_smart_coin.visibility = View.GONE
         }
 
-        //  入口可见性判断
-        //  1 - 编译时宏判断
-        //  2 - 根据语言判断
-        //  3 - 根据服务器配置判断
+        // Entry visibility judgment
+        // 1 - compile-time macro judgment
+        // 2 - Judging by language
+        // 3 - Judging by server configuration
         if (BuildConfig.kAppModuleEnableOTC && resources.getString(R.string.enableOtcEntry).toInt() != 0) {
             var hidden_layout = 0
             val cfg = OtcManager.sharedOtcManager().server_config
@@ -57,7 +57,8 @@ class ActivityIndexServices : BtsppActivity() {
                 layout_otc_merchant.visibility = View.GONE
                 hidden_layout += 1
             }
-            //  直接整个OTC组不可见
+
+// Directly the entire OTC group is invisible
             if (hidden_layout >= 2) {
                 layout_group_otc.visibility = View.GONE
             }
@@ -86,6 +87,7 @@ class ActivityIndexServices : BtsppActivity() {
         img_icon_explorer.setColorFilter(iconcolor)
         img_icon_game.setColorFilter(iconcolor)
 
+        //Search acc
         layout_account_query_from_services.setOnClickListener {
             TempManager.sharedTempManager().set_query_account_callback { last_activity, it ->
                 last_activity.goTo(ActivityIndexServices::class.java, true, back = true)
@@ -99,7 +101,7 @@ class ActivityIndexServices : BtsppActivity() {
                 goTo(ActivityAssetInfos::class.java, true)
             }
         }
-
+        //transfer bts
         layout_transfer_from_services.setOnClickListener {
             guardWalletExist {
                 val mask = ViewMask(R.string.kTipsBeRequesting.xmlstring(this), this)
@@ -118,7 +120,7 @@ class ActivityIndexServices : BtsppActivity() {
                 }
             }
         }
-
+        //voting
         layout_voting_from_services.setOnClickListener {
             guardWalletExist { goTo(ActivityVoting::class.java, true) }
         }

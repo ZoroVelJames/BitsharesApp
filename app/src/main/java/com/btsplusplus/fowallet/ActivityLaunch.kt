@@ -18,7 +18,8 @@ class ActivityLaunch : BtsppActivity() {
 
     companion object {
         /**
-         *  (public) 检测APP更新数据。
+         *  (public)
+        Detect APP update data.
          */
         fun checkAppUpdate(): Promise {
             if (BuildConfig.kAppCheckUpdate) {
@@ -40,16 +41,18 @@ class ActivityLaunch : BtsppActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //  初始化Flurry
+        //  Initialize Flurry
         FlurryAgent.Builder().withLogEnabled(true).build(this, "H45RRHMWCPMKZNNKR5SR")
 
-        //  初始化启动界面
+        //
+        //Initialize the startup interface
         setFullScreen()
 
-        //  初始化石墨烯对象序列化类
+        //
+        //Initialize the Graphene object serialization class
         T_Base.registerAllType()
 
-        //  初始化参数
+        //  Initialization parameters
         val dm = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(dm)
         Utils.screen_width = dm.widthPixels.toFloat()
@@ -57,19 +60,21 @@ class ActivityLaunch : BtsppActivity() {
         OrgUtils.initDir(this.applicationContext)
         AppCacheManager.sharedAppCacheManager().initload()
 
-        //  统计设备信息
+        //
+        //Statistics device information
         val accountName = WalletManager.sharedWalletManager().getWalletAccountName()
         if (accountName != null && accountName != "") {
             FlurryAgent.setUserId(accountName)
         }
 
-        //  初始化配置
+        //
+        //Initial configuration
         initCustomConfig()
 
-        //  启动日志
+        //  startup log
         btsppLogCustom("event_app_start", jsonObjectfromKVS("ver", Utils.appVersionName()))
 
-        //  初始化完毕后启动。
+        //  Start after initialization
         startInit(true)
     }
 
@@ -97,21 +102,23 @@ class ActivityLaunch : BtsppActivity() {
     }
 
     /**
-     * Version加载完毕
+     * Version loaded
      */
     private fun _onLoadVersionJsonFinish(pConfig: JSONObject?) {
         val bFoundNewVersion = VcUtils.processCheckAppVersionResponsed(this, pConfig) {
-            //  有新版本，但稍后提醒。则直接启动。
+            //
+            //There is a new version, but remind me later. start directly.
             _enterToMain()
         }
         if (!bFoundNewVersion) {
-            //  无新版本，直接启动。
+            //  No new version, start directly.
             _enterToMain()
         }
     }
 
     /**
-     * 进入主界面
+     *
+    Enter the main interface
      */
     private fun _enterToMain() {
         var homeClass: Class<*> = ActivityIndexMarkets::class.java
@@ -127,14 +134,15 @@ class ActivityLaunch : BtsppActivity() {
     }
 
     /**
-     * 强制等待
+     *
+    forced to wait
      */
     private fun asyncWait(): Promise {
         return OrgUtils.asyncWait(2000)
     }
 
     /**
-     * 初始化BTS网络，APP启动时候执行一次。
+     * Initialize the BTS network and execute it once when the APP starts.
      */
     private fun asyncInitBitshares(first_init: Boolean): Promise {
         val p = Promise()
@@ -143,16 +151,17 @@ class ActivityLaunch : BtsppActivity() {
         val chainMgr = ChainObjectManager.sharedChainObjectManager()
         val pAppCache = AppCacheManager.sharedAppCacheManager()
 
-        //  初始化链接
+        //  initialize link
         connMgr.Start(resources.getString(R.string.serverWssLangKey), force_use_random_node = !first_init).then { success ->
-            //  初始化网络相关数据
+            //
+            //Initialize network related data
             chainMgr.grapheneNetworkInit().then { data ->
-                //  初始化依赖资产（内置资产 + 自定义交易对等）
+                //  Initialize dependent assets (built-in assets + custom trading peers, etc.)
                 val dependence_syms = chainMgr.getConfigDependenceAssetSymbols()
                 val custom_asset_ids = pAppCache.get_fav_markets_asset_ids()
                 return@then chainMgr.queryAssetsBySymbols(symbols = dependence_syms, asset_ids = custom_asset_ids).then {
                     if (BuildConfig.DEBUG) {
-                        //  确保查询成功
+                        //  Make sure the query is successful
                         for (sym in dependence_syms.forin<String>()) {
                             chainMgr.getAssetBySymbol(sym!!)
                         }
@@ -160,34 +169,35 @@ class ActivityLaunch : BtsppActivity() {
                             chainMgr.getChainObjectByID(oid!!)
                         }
                     }
-                    //  生成市场数据结构
+                    //
+                    //Generate market data structures
                     chainMgr.buildAllMarketsInfos()
-                    //  初始化逻辑相关数据
+                    //  Initialize logically related data
                     val walletMgr = WalletManager.sharedWalletManager()
                     val promise_map = JSONObject().apply {
                         put("kInitTickerData", chainMgr.marketsInitAllTickerData())
                         put("kInitGlobalProperties", connMgr.last_connection().async_exec_db("get_global_properties"))
                         put("kInitFeeAssetInfo", chainMgr.queryFeeAssetListDynamicInfo())     //  查询手续费兑换比例、手续费池等信息
-                        //  每次启动都刷新当前账号信息
+                        //  Refresh current account information every time you start
                         if (walletMgr.isWalletExist()) {
                             put("kInitFullUserData", chainMgr.queryFullAccountInfo(walletMgr.getWalletInfo().getString("kAccountName")))
                         }
-                        //  初始化OTC数据
+                        //  Initialize OTC data
                         put("kQueryConfig", OtcManager.sharedOtcManager().queryConfig())
                     }
                     return@then Promise.map(promise_map).then {
-                        //  更新全局属性
+                        //  Update global properties
                         val data_hash = it as JSONObject
                         chainMgr.updateObjectGlobalProperties(data_hash.getJSONObject("kInitGlobalProperties"))
-                        //  更新帐号完整数据
+                        //  Update account full data
                         val full_account_data = data_hash.optJSONObject("kInitFullUserData")
                         if (full_account_data != null) {
                             AppCacheManager.sharedAppCacheManager().updateWalletAccountInfo(full_account_data)
                         }
-                        //  初始化完成之后：启动计划调度任务
+                        //  After initialization is complete: start the scheduled scheduling task
                         ScheduleManager.sharedScheduleManager().startTimer()
                         ScheduleManager.sharedScheduleManager().autoRefreshTickerScheduleByMergedMarketInfos()
-                        //  初始化完成
+                        //  loading finished
                         p.resolve(true)
                         return@then null
                     }
@@ -210,10 +220,10 @@ class ActivityLaunch : BtsppActivity() {
     }
 
     /**
-     * 初始化自定义启动设置 : (启动仅执行一次)
+     * Initialize custom startup settings: (startup is performed only once)
      */
     private fun initCustomConfig() {
-        // 初始化缓存
+        //Initialize the cache
         ChainObjectManager.sharedChainObjectManager().initConfig(this)
     }
 }

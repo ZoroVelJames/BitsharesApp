@@ -16,12 +16,6 @@
         launch
         android:text="前置页面点击跳过" /> -->
 
-    <ImageView
-        android:id="@+id/bitfastlogo"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_bitfastlogotxt"
-        />
+
 
 </android.support.design.widget.CoordinatorLayout>
