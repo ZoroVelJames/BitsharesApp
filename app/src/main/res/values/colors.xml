@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#141e32</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary_material_dark">#141e32</color>
-    <color name="colorBackground">#141e32</color>
+    <color name="colorBackground">#16191C</color>
     <color name="colorGreen">#2aa97e</color>
     <color name="colorRed">#c07e83</color>
     <color name="colorWhite">#ffffff</color>
@@ -38,7 +38,7 @@
     <color name="theme01.color09">#0b131d</color>
 
     <!-- syalon added, 如何动态切换呢？？ -->
-    <color name="theme01.appBackColor">#131f30</color>
+    <color name="theme01.appBackColor">#16191c</color>
     <color name="theme01.contentBackColor">#333333</color>
     <color name="theme01.bottomLineColor">#1a273a</color>
     <color name="theme01.buyColor">#03c087</color>
@@ -59,7 +59,7 @@
     <color name="theme01.buyColor2">#122f38</color>
     <color name="theme01.sellColor2">#282732</color>
 
-    <color name="theme01.tabBarColor">#172941</color>
+    <color name="theme01.tabBarColor">#23272B</color>
     <color name="theme01.tabBarColor2">#cc172941</color>
 
     <color name="theme01.mainButtonBackColor">#e76d42</color>

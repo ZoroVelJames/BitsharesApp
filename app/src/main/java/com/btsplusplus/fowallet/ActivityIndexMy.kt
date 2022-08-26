@@ -28,7 +28,7 @@ class ActivityIndexMy : BtsppActivity() {
         //  设置全屏(隐藏状态栏和虚拟导航栏)
         setFullScreen()
 
-        //  设置底部导航栏样式
+        //  Set the bottom navigation bar style
         setBottomNavigationStyle(3)
 
         //  设置图标颜色

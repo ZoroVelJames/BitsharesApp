@@ -17,7 +17,7 @@ class ActivityIndexMarkets : BtsppActivity() {
     private var _tickerRefreshTimer: Timer? = null
 
     /**
-     * 重载 - 返回键按下
+     *Reload - return key pressed
      */
     override fun onBackPressed() {
         goHome()
